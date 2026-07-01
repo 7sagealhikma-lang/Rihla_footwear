@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rihla Footwear — Walk in Style</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            --primary-green: #2ecc71;
+            --light-green: #a8e6cf;
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+            --text-dark: #1a1a2e;
+            --text-light: #f5f5f5;
+            --accent-gold: #d4a574;
+            --cart-badge: #ff4757;
+            --green-glow: rgba(46, 204, 113, 0.45);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* ═══════════════════════════════════════════ */
+            /*  WHOLE WINDOW BACKGROUND IMAGE            */
+            /*  Replace 'images/bg.jpg' with your image  */
+            /* ═══════════════════════════════════════════ */
+            background: url('bg.jpg') center / cover no-repeat fixed;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-light);
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Subtle overlay to ensure text readability */
+        
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            pointer-events: none;
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  FLOATING DECORATIVE PARTICLES (Spicy!)   */
+        /* ═══════════════════════════════════════════ */
+        
+        .particles-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(13, 218, 23, 0.817);
+            animation: floatUp linear infinite;
+            bottom: -60px;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.3);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(60px) scale(3);
+                opacity: 0;
+            }
+        }
+        
+        .particle:nth-child(odd) {
+            background: rgba(168, 230, 207, 0.5);
+            box-shadow: 0 0 12px rgba(46, 204, 113, 0.5);
+        }
+        
+        .particle:nth-child(even) {
+            background: rgba(43, 174, 206, 0.648);
+            box-shadow: 0 0 8px rgba(61, 115, 194, 0.737);
+        }
+        /* ═══════════════════════════ */
+        /*  HEADER SECTION            */
+        /* ═══════════════════════════ */
+        
+        .site-header {
+            /* ═══════════════════════════════════════════════ */
+            /*  HEADER BACKGROUND IMAGE                      */
+            /*  Replace 'images/header-bg.jpg' with your img */
+            /* ═══════════════════════════════════════════════ */
+            background: url('header.jpg') center / cover no-repeat;
+            background: url('header.jpg') center 91% / cover no-repeat;
+            position: sticky;
+            top: 3;
+            z-index: 1000;
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 6px 30px rgba(139, 220, 33, 0.555);
+            transition: all 0.3s ease;
+            min-height: 90px;
+        }
+        
+        .site-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 0;
+        }
+        
+        .site-header>* {
+            position: relative;
+            z-index: 1;
+        }
+        /* Logo / Brand */
+        
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .brand-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #12dc12;
+            box-shadow: 0 0 25px rgba(46, 204, 113, 0.4);
+            animation: pulseGlow 2.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 25px rgba(46, 204, 113, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 45px rgba(46, 204, 113, 0.75);
+            }
+        }
+        
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: #e4eeed;
+            letter-spacing: 5px;
+            text-shadow: 0 2px 10px rgba(10, 224, 53, 0.779);
+            line-height: 1;
+        }
+        
+        .brand-tagline {
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--light-green);
+            text-transform: uppercase;
+            display: block;
+        }
+        /* Cart Button */
+        
+        .cart-btn-wrapper {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-btn-wrapper:hover {
+            transform: scale(1.08);
+        }
+        
+        .cart-btn-wrapper:active {
+            transform: scale(0.94);
+        }
+        
+        .cart-btn {
+            width: 56px;
+            height: 56px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #12dc12;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cart-btn:hover {
+            background: rgba(46, 204, 113, 0.25);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 35px rgba(46, 204, 113, 0.55);
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--cart-badge);
+            color: #cbe13a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #fff;
+            transition: all 0.3s ease;
+            animation: badgeBounce 0.5s ease;
+            z-index: 5;
+        }
+        
+        @keyframes badgeBounce {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        /* Mini Cart Dropdown */
+        
+        .mini-cart-dropdown {
+            position: absolute;
+            top: 70px;
+            right: 0;
+            width: 340px;
+            background: rgba(20, 20, 30, 0.95);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 2000;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .mini-cart-dropdown.active {
+            display: block;
+            animation: dropIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes dropIn {
+            from {
+                opacity: 0;
+                transform: translateY(-25px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .mini-cart-dropdown h4 {
+            color: #fff;
+            margin-bottom: 14px;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .mini-cart-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ddd;
+            font-size: 0.85rem;
+        }
+        
+        .mini-cart-item .item-name {
+            flex: 1;
+        }
+        
+        .mini-cart-item .item-price {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+        
+        .mini-cart-remove {
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        
+        .mini-cart-remove:hover {
+            color: #ff0000;
+        }
+        
+        .mini-cart-empty {
+            text-align: center;
+            color: #aaa;
+            padding: 20px 0;
+            font-style: italic;
+        }
+        
+        .mini-cart-total {
+            color: #fff;
+            font-weight: 700;
+            text-align: right;
+            padding-top: 10px;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 8px;
+        }
+        
+        .mini-cart-checkout {
+            display: block;
+            width: 100%;
+            margin-top: 12px;
+            padding: 10px;
+            background: var(--primary-green);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+        
+        .mini-cart-checkout:hover {
+            background: #27ae60;
+            box-shadow: 0 6px 25px rgba(46, 204, 113, 0.5);
+            transform: translateY(-2px);
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  NAVIGATION BAR — Glass Style              */
+        /* ═══════════════════════════════════════════ */
+        
+        .nav-bar {
+            position: st;
+            top: 90px;
+            z-index: 999;
+            border-top: none;
+            padding: 6px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn {
+            padding: 12px 28px;
+            border: 2px solid transparent;
+            background: rgba(65, 194, 101, 0.71);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            white-space: nowrap;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            text-underline: none
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.5), rgba(168, 230, 207, 0.566));
+            opacity: 0;
+            transition: opacity 0.35s;
+            border-radius: 30px;
+            z-index: -1;
+        }
+        
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-btn:hover {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 30px rgba(129, 194, 212, 0.541);
+            transform: translateY(-3px);
+            color: #fff;
+        }
+        
+        .nav-btn:active {
+            transform: scale(0.94);
+        }
+        
+        .nav-btn.active {
+            background: rgba(46, 204, 112, 0.637);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 25px rgba(46, 204, 113, 0.55);
+            color: #fff;
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  MAIN CATALOGUE SECTION                   */
+        /* ═══════════════════════════════════════════ */
+        
+        .catalogue-container {
+            max-inline-size: 1800px;
+            margin: 0px auto;
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+           position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+   
+       
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-green);
+            margin: 10px auto 0;
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.7);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 35px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  PRODUCT GRID — 4 columns horizontally    */
+        /* ═══════════════════════════════════════════ */
+        
+        .product-grid {
+           position: relative;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 1200px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 550px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+        }
+        /* Product Card */
+        
+        .product-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 2px solid rgba(255, 255, 255, 0.18);
+            border-radius: 0px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 55px rgba(46, 204, 113, 0.35);
+            border-color: var(--primary-green);
+        }
+        
+        .product-card-img {
+            width: 100%;
+            aspect-ratio: 4 / 6;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.55s ease;
+            cursor: pointer;
+        }
+        
+        .product-card:hover .product-card-img {
+            transform: scale(1.06);
+        }
+        
+        .product-info {
+            padding: 16px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            flex: 2;
+        }
+        
+        .product-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
+        
+        .product-price small {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #aaa;
+            text-decoration: line-through;
+            margin-left: 6px;
+        }
+        
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 13px 18px;
+            background: rgba(46, 204, 113, 0.25);
+            border: 2px solid var(--primary-green);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.30rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            letter-spacing: 0.8px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: var(--primary-green);
+            color: #000;
+            box-shadow: 0 10px 35px rgba(46, 204, 113, 0.6);
+            transform: translateY(-2px);
+            letter-spacing: 1.5px;
+        }
+        
+        .add-to-cart-btn:active {
+            transform: scale(0.94);
+        }
+        
+        .badge-sale {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: #ff4757;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 20px;
+            z-index: 2;
+            letter-spacing: 1px;
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  PAGINATION — 5 pages with arrows         */
+        /* ═══════════════════════════════════════════ */
+        
+        .pagination-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 25px 0 50px;
+            flex-wrap: wrap;
+        }
+        
+        .page-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-btn:hover {
+            background: rgba(46, 204, 113, 0.3);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        .page-btn.active {
+            background: var(--primary-green);
+            border-color: var(--primary-green);
+            color: #000;
+            font-weight: 800;
+            box-shadow: 0 0 30px rgba(46, 204, 113, 0.7);
+            transform: scale(1.1);
+        }
+        
+        .page-btn.arrow {
+            font-size: 1.2rem;
+            width: 50px;
+            height: 50px;
+        }
+        
+        .page-btn:disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  TOAST NOTIFICATION                       */
+        /* ═══════════════════════════════════════════ */
+        
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(46, 204, 113, 0.95);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            color: #000;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            z-index: 9999;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+            animation: toastIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), toastOut 0.4s 2s ease forwards;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @keyframes toastIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes toastOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  FOOTER                                   */
+        /* ═══════════════════════════════════════════ */
+        
+        .site-footer {
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-top: 2px solid rgba(255, 255, 255, 0.15);
+            padding: 30px 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 40px;
+        }
+        
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        
+        .footer-info {
+            color: #bbb;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        
+        .footer-info i {
+            color: var(--primary-green);
+            margin-right: 6px;
+        }
+        
+        .footer-bottom {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        /* ═══════════════════════════════════════════ */
+        /*  SCROLL TO TOP                            */
+        /* ═══════════════════════════════════════════ */
+        
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(46, 204, 113, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.35s ease;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+        }
+        
+        .scroll-top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .scroll-top-btn:hover {
+            background: var(--primary-green);
+            color: #000;
+            box-shadow: 0 0 35px rgba(46, 204, 113, 0.7);
+            transform: translateY(-4px);
+        }
+    @media (max-width: 768px) {
+            .site-header {
+                padding: 12px 16px;
+                min-height: 70px;
+            }
+            .brand-name {
+                font-size: 1.4rem;
+            }
+            .brand-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
+            }
+            .nav-bar {
+                top: 70px;
+                gap: 5px;
+                padding: 5px 8px;
+            }
+            .nav-btn {
+                padding: 8px 14px;
+                font-size: 0.7rem;
+                letter-spacing: 0.5px;
+                border-radius: 20px;
+            }
+            .section-card {
+                padding: 22px 14px;
+                border-radius: 16px;
+                scroll-margin-top: 150px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .video-overlay-text {
+                font-size: 1.3rem;
+            }
+            .cart-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+            }
+            .cart-badge {
+                width: 22px;
+                height: 22px;
+                font-size: 0.65rem;
+                top: -4px;
+                right: -4px;
+            }
+            .mini-cart-dropdown {
+                width: 280px;
+                right: -10px;
+            }
+            .catalogue-label {
+                font-size: 1.1rem;
+                padding: 20px 10px 14px;
+            }
+            .special-price-tag {
+                font-size: 1rem;
+                padding: 6px 14px;
+                top: 10px;
+                left: 10px;
+            }
+            .special-add-btn {
+                font-size: 0.8rem;
+                padding: 9px 20px;
+                bottom: 12px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  FLOATING PARTICLES BACKGROUND (Spicy!)         -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  HEADER                                        -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <header class="site-header" id="siteHeader">
+        <!-- Brand -->
+        <div class="brand-logo">
+            <div class="brand-icon">
+                <i class="fa-solid fa-shoe-prints"></i>
+            </div>
+            <div>
+                <span class="brand-name">RIHLA Footwear</span>
+                <span class="brand-tagline">Walk in Style</span>
+            </div>
+        </div>
+
+        <!-- Cart Button -->
+   <div class="cart-btn-wrapper" id="cartBtnWrapper" title="Go to Cart" onclick="window.location.href='index.html'">
+    <div class="cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <span class="cart-badge" id="cartBadge">0</span>
+</div>
+
+
+    </header>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  NAVIGATION BAR — Glass Style                  -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <nav class="nav-bar" id="navBar">
+        <a href="index.html#homeSection" class="nav-btn" data-scroll="homeSection">🏠 Home</a>
+        <a href="index.html#contactSection" class="nav-btn" data-scroll="contactSection">📞 Contact</a>
+        <a href="index.html#specialsSection" class="nav-btn" data-scroll="specialsSection">🔥 Specials</a>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  CATALOGUE CONTENT                           -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="catalogue-container">
+        <h2 class="section-title">👟 Women Footwear Collection</h2>
+        <p class="section-subtitle">Page <span id="currentPageDisplay">1</span> of 25 — 250 styles available</p>
+
+        <!-- Product Grid (4 columns x 10 rows = 40 items across 5 pages) -->
+        <div class="product-grid" id="productGrid"></div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper" id="paginationContainer"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-brand">Rihla Footwear</div>
+        <div class="footer-info">
+            <i class="fa-solid fa-envelope"></i> yusuf7sage@gmail.com &nbsp;|&nbsp;
+            <i class="fa-solid fa-location-dot"></i> South Africa
+        </div>
+        <div class="footer-info">
+            <i class="fa-solid fa-map-pin"></i> 123 Fashion Street, Sandton, Johannesburg, 2196
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="currentYear"></span> Rihla Footwear. All rights reserved. | Walk in Style.
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top-btn" id="scrollTopBtn" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <script>
+        (function() {
+                // ═══════════════════════════════
+                //  PRODUCT DATABASE (250 items)
+                // ═══════════════════════════════
+                const allProducts = [{
+                    id: 1,
+                   name: "Style #1",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/1.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/1.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                }, {
+                    id: 2,
+                   name: "Style #1",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/2.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/2.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                }, {
+                    id: 3,
+                   name: "Style #1",
+                    price: 850.00, // Your custom price
+                    image: "men and woman/3.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/3.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 4,
+                   name: "Style #1",
+                    price: 800.00, // Your custom price
+                    image: "men and woman/4.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/4.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 5,
+                   name: "Style #1",
+                    price: 850.00, // Your custom price
+                    image: "men and woman/5.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/5.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 6,
+                   name: "Style #1",
+                    price: 950.00, // Your custom price
+                    image: "men and woman/6.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/6.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 7,
+                   name: "Style #1",
+                    price: 700.00, // Your custom price
+                    image: "men and woman/7.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/7.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 8,
+                   name: "Style #1",
+                    price: 800.00, // Your custom price
+                    image: "men and woman/8.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/8.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 9,
+                   name: "Style #1",
+                    price: 700.00, // Your custom price
+                    image: "men and woman/9.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/9.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 10,
+                   name: "Style #10",
+                    price: 650.00, // Your custom price
+                    image: "men and woman/10.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/10.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 11,
+                   name: "Style #11",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/11.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/11.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 12,
+                   name: "Style #12",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/12.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/12.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 13,
+                   name: "Style #13",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/13.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/13.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 14,
+                   name: "Style #14",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/14.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/14.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 15,
+                   name: "Style #15",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/15.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/15.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 16,
+                   name: "Style #16",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/16.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/16.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 17,
+                   name: "Style #17",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/17.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/17.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 18,
+                   name: "Style #18",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/18.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/18.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 19,
+                   name: "Style #19",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/19.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/19.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 20,
+                   name: "Style #20",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/20.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/20.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 21,
+                   name: "Style #21",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/21.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/21.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 22,
+                   name: "Style #22",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/22.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/22.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 23,
+                   name: "Style #23",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/23.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/23.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 24,
+                   name: "Style #24",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/24.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/24.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },{
+                    id: 25,
+                   name: "Style #25",
+                    price: 900.00, // Your custom price
+                    image: "men and woman/25.jpg", // Exactly where your image is saved in your folder!
+                    fallback: "men and woman/25.jpg", // Backup image if the first one fails to load
+                    onSale: false // Set to true if originalPrice is higher
+                },
+           ];
+                const categories = ['Sneakers', 'Heels', 'Loafers', 'Boots', 'Sandals', 'Flats', 'Sports', 'Casual'];
+                const colors = ['Black', 'White', 'Navy', 'Beige', 'Red', 'Brown', 'Grey', 'Olive'];
+
+                // ═══════════════════════════════
+                //  PAGINATION STATE
+                // ═══════════════════════════════
+                const itemsPerPage = 25; // 5 columns x 5 rows visible per page (or adjust)
+                // Actually user said 5 items horizontally and 10 items vertically = 50 items total.
+                // With 5 pages, that's 250/5 = 25 items per page. (5 cols x 5 rows)
+                const totalPages = 5;
+                let currentPage = 1;
+
+                // ═══════════════════════════════
+                //  CART (shared via localStorage)
+                // ═══════════════════════════════
+                let cart = JSON.parse(localStorage.getItem('rihlaCart')) || [];
+
+                function saveCart() {
+                    localStorage.setItem('rihlaCart', JSON.stringify(cart));
+                    updateCartBadge();
+                }
+
+                function updateCartBadge() {
+                    const badge = document.getElementById('cartBadge');
+                    const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                    badge.textContent = total;
+                    badge.style.animation = 'none';
+                    badge.offsetHeight;
+                    badge.style.animation = 'badgeBounce 0.5s ease';
+                }
+
+                function addToCart(product) {
+                    const existing = cart.find(item => item.name === product.name);
+                    if (existing) {
+                        existing.quantity = (existing.quantity || 1) + 1;
+                    } else {
+                        cart.push({
+                            name: product.name,
+                            price: product.price,
+                            quantity: 1
+                        });
+                    }
+                    saveCart();
+                    showToast(`✅ Added: ${product.name}`);
+                }
+
+                // ═══════════════════════════════
+                //  RENDER PRODUCTS FOR PAGE
+                // ═══════════════════════════════
+                function renderProducts(page) {
+                    const start = (page - 1) * itemsPerPage;
+                    const end = start + itemsPerPage;
+                    const pageItems = allProducts.slice(start, end);
+                    const grid = document.getElementById('productGrid');
+                    grid.innerHTML = '';
+
+                    pageItems.forEach(product => {
+                                const card = document.createElement('div');
+                                card.className = 'product-card';
+                                card.innerHTML = `
+                        ${product.onSale ? '<span class="badge-sale">SALE</span>' : ''}
+                        <img src="${product.image}" 
+                             
+                             class="product-card-img"
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='${product.fallback}';">
+                        <div class="product-info">
+                            
+                            <div class="product-price">
+                                R ${product.price.toFixed(2)}
+                                ${product.originalPrice ? `<small>R ${product.originalPrice.toFixed(2)}</small>` : ''}
+                            </div>
+                            <button class="add-to-cart-btn">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    `;
+                    const addBtn = card.querySelector('.add-to-cart-btn');
+                    addBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        addToCart(product);
+                        // button animationk
+                        const origHTML = addBtn.innerHTML;
+                        addBtn.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+                        addBtn.style.background = '#27ae60';
+                        addBtn.style.color = '#fff';
+                        setTimeout(() => {
+                            addBtn.innerHTML = origHTML;
+                            addBtn.style.background = '';
+                            addBtn.style.color = '';
+                        }, 1400);
+                    });
+                    grid.appendChild(card);
+                });
+
+                document.getElementById('currentPageDisplay').textContent = page;
+                renderPagination(page);
+            }
+
+            // ═══════════════════════════════
+            //  RENDER PAGINATION BUTTONS
+            // ═══════════════════════════════
+            function renderPagination(activePage) {
+                const container = document.getElementById('paginationContainer');
+                container.innerHTML = '';
+
+                // Previous arrow
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'page-btn arrow';
+                prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+                prevBtn.disabled = activePage === 1;
+                prevBtn.addEventListener('click', () => {
+                    if (activePage > 1) {
+                        currentPage = activePage - 1;
+                        renderProducts(currentPage);
+                        window.scrollTo({ top: 300, behavior: 'smooth' });
+                    }
+                });
+                container.appendChild(prevBtn);
+
+                // Page numbers 1-5
+                for (let p = 1; p <= totalPages; p++) {
+                    const pageBtn = document.createElement('button');
+                    pageBtn.className = `page-btn ${p === activePage ? 'active' : ''}`;
+                    pageBtn.textContent = p;
+                    pageBtn.addEventListener('click', () => {
+                        if (p !== currentPage) {
+                            currentPage = p;
+                            renderProducts(currentPage);
+                            window.scrollTo({ top: 300, behavior: 'smooth' });
+                        }
+                    });
+                    container.appendChild(pageBtn);
+                }
+
+                // Next arrow
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'page-btn arrow';
+                nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+                nextBtn.disabled = activePage === totalPages;
+                nextBtn.addEventListener('click', () => {
+                    if (activePage < totalPages) {
+                        currentPage = activePage + 1;
+                        renderProducts(currentPage);
+                        window.scrollTo({ top: 300, behavior: 'smooth' });
+                    }
+                });
+                container.appendChild(nextBtn);
+            }
+
+            // ═══════════════════════════════
+            //  TOAST
+            // ═══════════════════════════════
+            function showToast(msg) {
+                const existing = document.querySelector('.toast');
+                if (existing) existing.remove();
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = msg;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2500);
+            }
+
+            // ═══════════════════════════════
+            //  PARTICLES
+            // ═══════════════════════════════
+            const particlesContainer = document.getElementById('particlesContainer');
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random() * 8 + 3;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = Math.random() * 20 + 10 + 's';
+                p.style.animationDelay = Math.random() * 15 + 's';
+                particlesContainer.appendChild(p);
+            }
+
+            // ═══════════════════════════════
+            //  SCROLL TO TOP
+            // ═══════════════════════════════
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            window.addEventListener('scroll', () => {
+                scrollBtn.classList.toggle('visible', window.scrollY > 500);
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // ═══════════════════════════════
+            //  FOOTER YEAR
+            // ═══════════════════════════════
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // ═══════════════════════════════
+            //  INIT
+            // ═══════════════════════════════
+            updateCartBadge();
+            renderProducts(currentPage);
+
+            console.log('%c👟 Rihla Footwear Catalogue %c— 40 products ready!',
+                'font-size:1.5rem;font-weight:bold;color:#2ecc71;', 'color:#fff;');
+            console.log('%c📁 Place product images as product-1.jpg to product-40.jpg in /images folder.',
+                'color:#a8e6cf;');
+        })();
+    </script>
+</body>
+
+</html>
